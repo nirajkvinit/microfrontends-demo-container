@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/mfedemocontainer/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/mfedemocontainer/static/js/main.05350148.chunk.js",
-    "main.js.map": "/mfedemocontainer/static/js/main.05350148.chunk.js.map",
-    "runtime-main.js": "/mfedemocontainer/static/js/runtime-main.1e9536be.js",
-    "runtime-main.js.map": "/mfedemocontainer/static/js/runtime-main.1e9536be.js.map",
-    "static/css/2.fbb149ea.chunk.css": "/mfedemocontainer/static/css/2.fbb149ea.chunk.css",
-    "static/js/2.4145e8ce.chunk.js": "/mfedemocontainer/static/js/2.4145e8ce.chunk.js",
-    "static/js/2.4145e8ce.chunk.js.map": "/mfedemocontainer/static/js/2.4145e8ce.chunk.js.map",
-    "index.html": "/mfedemocontainer/index.html",
-    "static/css/2.fbb149ea.chunk.css.map": "/mfedemocontainer/static/css/2.fbb149ea.chunk.css.map",
-    "static/css/main.6dea0f05.chunk.css.map": "/mfedemocontainer/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.4145e8ce.chunk.js.LICENSE.txt": "/mfedemocontainer/static/js/2.4145e8ce.chunk.js.LICENSE.txt"
+    "main.css": "/microfrontends-demo-container/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/microfrontends-demo-container/static/js/main.05350148.chunk.js",
+    "main.js.map": "/microfrontends-demo-container/static/js/main.05350148.chunk.js.map",
+    "runtime-main.js": "/microfrontends-demo-container/static/js/runtime-main.5a5dbe0c.js",
+    "runtime-main.js.map": "/microfrontends-demo-container/static/js/runtime-main.5a5dbe0c.js.map",
+    "static/css/2.fbb149ea.chunk.css": "/microfrontends-demo-container/static/css/2.fbb149ea.chunk.css",
+    "static/js/2.39d64458.chunk.js": "/microfrontends-demo-container/static/js/2.39d64458.chunk.js",
+    "static/js/2.39d64458.chunk.js.map": "/microfrontends-demo-container/static/js/2.39d64458.chunk.js.map",
+    "index.html": "/microfrontends-demo-container/index.html",
+    "static/css/2.fbb149ea.chunk.css.map": "/microfrontends-demo-container/static/css/2.fbb149ea.chunk.css.map",
+    "static/css/main.6dea0f05.chunk.css.map": "/microfrontends-demo-container/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.39d64458.chunk.js.LICENSE.txt": "/microfrontends-demo-container/static/js/2.39d64458.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1e9536be.js",
+    "static/js/runtime-main.5a5dbe0c.js",
     "static/css/2.fbb149ea.chunk.css",
-    "static/js/2.4145e8ce.chunk.js",
+    "static/js/2.39d64458.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
     "static/js/main.05350148.chunk.js"
   ]
