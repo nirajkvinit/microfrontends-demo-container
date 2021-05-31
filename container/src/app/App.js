@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import styled from 'styled-components';
 import isUrl from 'validator/lib/isURL';
-import Spinner from 'react-spinkit';
+
 import {
   Button,
   Divider,
@@ -9,32 +10,64 @@ import {
   TextInput,
   HeadingSmall,
   FullWidthContentSection,
-  IFrameContainer,
   LessonPresentationHeader,
   LessonPresentationContainer,
+  IFrameWrapper,
+  IFrameContent,
 } from '../ui';
+
+const CenteredHeadingSmall = styled(HeadingSmall)`
+  text-align: center;
+  padding: 5px 0;
+`;
 
 export const App = () => {
   const [inputValue, setInputValue] = useState('');
   const [lessonPresentationUrl, setLessonPresentationUrl] = useState('');
   const [errorMessageVal, setErrorMessageVal] = useState(null);
-  const [teacherLoading, setTeacherLoading] = useState(false);
-  const [studentLoading, setStudentLoading] = useState(false);
+
+  const [teacherIframeLoaded, setTeacherIframeLoaded] = useState(false);
+  const [studentIframeLoaded, setStudentIframeLoaded] = useState(false);
+
+  let IframeRefTeacher = useRef(null);
+  let IframeRefStudent = useRef(null);
+
+  const sendMessage = (type, message) => {
+    if (type === 'teacher') {
+      IframeRefTeacher.current.contentWindow.postMessage(message, '*');
+    } else {
+      IframeRefTeacher.current.contentWindow.postMessage(message, '*');
+    }
+  };
 
   const onClickLoadPresentation = () => {
     const validatorOption = inputValue.includes('localhost')
       ? { require_tld: false }
       : {};
+
     if (!isUrl(inputValue, validatorOption)) {
+      setLessonPresentationUrl('');
       setErrorMessageVal('Please input correct lesson presentation URL');
       return;
     }
-    setTeacherLoading(true);
-    setStudentLoading(true);
 
     setLessonPresentationUrl(inputValue);
     setErrorMessageVal(null);
   };
+
+  useEffect(() => {
+    if (teacherIframeLoaded) {
+      sendMessage('teacher', Math.random());
+      setTeacherIframeLoaded(false);
+    }
+  }, [teacherIframeLoaded]);
+
+  useEffect(() => {
+    if (studentIframeLoaded) {
+      sendMessage('student', Math.random());
+      setStudentIframeLoaded(false);
+    }
+  }, [studentIframeLoaded]);
 
   return (
     <FullWidthContentSection>
@@ -50,23 +83,28 @@ export const App = () => {
           Load Presentation
         </Button>
       </LessonPresentationHeader>
+
       {errorMessageVal ? <ErrorMessage>{errorMessageVal}</ErrorMessage> : null}
       <Divider />
 
       {lessonPresentationUrl ? (
         <LessonPresentationContainer>
-          <IFrameContainer
-            id="teacheriframe"
-            src={lessonPresentationUrl}
-            type="Teacher"
-            onLoad={() => setTeacherLoading(false)}
-          ></IFrameContainer>
-          <IFrameContainer
-            id="studentiframe"
-            src={lessonPresentationUrl}
-            type="Student"
-            onLoad={() => setStudentLoading(false)}
-          ></IFrameContainer>
+          <IFrameWrapper>
+            <CenteredHeadingSmall>Teacher</CenteredHeadingSmall>
+            <IFrameContent
+              src={lessonPresentationUrl}
+              ref={IframeRefTeacher}
+              onLoad={() => setTeacherIframeLoaded(true)}
+            ></IFrameContent>
+          </IFrameWrapper>
+          <IFrameWrapper>
+            <CenteredHeadingSmall>Student</CenteredHeadingSmall>
+            <IFrameContent
+              src={lessonPresentationUrl}
+              ref={IframeRefStudent}
+              onLoad={() => setStudentIframeLoaded(true)}
+            ></IFrameContent>
+          </IFrameWrapper>
         </LessonPresentationContainer>
       ) : (
         <LessonPresentationContainer>

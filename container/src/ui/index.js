@@ -7,6 +7,7 @@ export { HoveringButton } from './HoveringButton';
 export { MaxWidthContentSection } from './MaxWidthContentSection';
 export { TextInput } from './TextInput';
 export { FullWidthContentSection } from './FullWidthContentSection';
-export { IFrameContainer } from './IFrameContainer';
 export { LessonPresentationContainer } from './LessonPresentationContainer';
 export { LessonPresentationHeader } from './LessonPresentationHeader';
+export { IFrameContent } from './IFrameContent';
+export { IFrameWrapper } from './IFrameWrapper';
